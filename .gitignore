@@ -3,6 +3,7 @@
 
 # Ignore out folder
 out/
+git rm -r --cached out/
 
 # Ignore Gradle GUI config
 gradle-app.setting
