@@ -14,11 +14,4 @@ public class Point {
   }
 
 
-  public double distance(Point p2) {
-    double dx = this.x - p2.x;
-    double dy = this.y - p2.y;
-    return Math.sqrt(dx * dx + dy * dy);
-
-  }
-
 }
