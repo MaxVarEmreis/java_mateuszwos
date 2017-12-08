@@ -1,7 +1,5 @@
 package ru.stqa.pft.addressbook.appmanager;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
@@ -11,18 +9,10 @@ public class ApplicationManager {
   FirefoxDriver wd;
 
   private SessionHelper sessionHelper;
-  private ContactHelper contactHelper ;
-  private NavigationHelper navigationHelper ;
-  private GroupHelper groupHelper ;
+  private ContactHelper contactHelper;
+  private NavigationHelper navigationHelper;
+  private GroupHelper groupHelper;
 
-  public static boolean isAlertPresent(FirefoxDriver wd) {
-    try {
-      wd.switchTo().alert();
-      return true;
-    } catch (NoAlertPresentException e) {
-      return false;
-    }
-  }
 
   public void init() {
     wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true).setBinary("C:/Program Files (x86)/Mozilla Firefox/Mozilla Firefox ESR/firefox.exe"));
