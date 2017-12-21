@@ -35,8 +35,9 @@ public class ContactHelper extends HelperBase {
     }
   }
 
-  public void selectContact() {
-    click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+  public void selectContact(int index) {
+    wd.findElements(By.xpath("//div/div[4]/form[2]/table/tbody/tr[2]/td[8]/a/img")).get(index).click();
+
   }
 
   public void updateContactForm() {
@@ -47,8 +48,8 @@ public class ContactHelper extends HelperBase {
     click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
   }
 
-  public void checkboxSelectContact() {
-    click(By.name("selected[]"));
+  public void checkboxSelectContact(int index) {
+    wd.findElements(By.name("selected[]")).get(index).click();
   }
 
   public void alertDeletion() {
