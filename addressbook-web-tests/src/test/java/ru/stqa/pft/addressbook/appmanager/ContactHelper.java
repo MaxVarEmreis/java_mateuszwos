@@ -39,7 +39,7 @@ public class ContactHelper extends HelperBase {
     }
   }
 
-  public void modifyContact(ContactData contact) {
+  public void modify(ContactData contact) {
     selectContact(0);
     fillContactForm(contact, false);
     updateContactForm();
@@ -51,7 +51,7 @@ public class ContactHelper extends HelperBase {
 
   }
 
-  public void contactDeletion(int index) {
+  public void deletion(int index) {
     checkboxSelectContact(index);
     deleteContact();
     alertDeletion();
@@ -73,7 +73,7 @@ public class ContactHelper extends HelperBase {
     wd.switchTo().alert().accept();
   }
 
-  public void createContact(ContactData contact) {
+  public void create(ContactData contact) {
     fillContactForm(contact, true);
     enterContact();
     gotoHomePage();
@@ -87,7 +87,7 @@ public class ContactHelper extends HelperBase {
     return wd.findElements(By.name("selected[]")).size();
   }
 
-  public List<ContactData> getContactList() {
+  public List<ContactData> list() {
       List<ContactData> contacts = new ArrayList<ContactData>();
       List<WebElement> elements = wd.findElements(By.name("entry"));
     for (WebElement element : elements) {
