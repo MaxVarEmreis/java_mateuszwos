@@ -50,14 +50,15 @@ public class ContactData {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     ContactData that = (ContactData) o;
-    return Objects.equals(firtsName, that.firtsName) &&
+    return id == that.id &&
+            Objects.equals(firtsName, that.firtsName) &&
             Objects.equals(lastName, that.lastName);
   }
 
   @Override
   public int hashCode() {
 
-    return Objects.hash(firtsName, lastName);
+    return Objects.hash(id, firtsName, lastName);
   }
 
   public ContactData withId(int id) {
