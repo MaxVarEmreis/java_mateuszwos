@@ -9,7 +9,8 @@ public class ContactData {
   private String mobile;
   private String email;
   private String group;
-
+  private String homePhone;
+  private String workPhone;
 
 
   public String getFirtsName() {
@@ -90,4 +91,15 @@ public class ContactData {
     this.group = group;
     return this;
   }
+
+  public ContactData withWorkPhone(String workPhone) {
+    this.workPhone = workPhone;
+    return this;
+  }
+
+  public ContactData withHomePhone(String homePhone) {
+    this.homePhone = homePhone;
+    return this;
+  }
 }
+
