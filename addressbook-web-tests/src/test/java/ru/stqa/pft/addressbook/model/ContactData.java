@@ -33,6 +33,16 @@ public class ContactData {
     return group;
   }
 
+  public String getHomePhone() {
+    return homePhone;
+  }
+
+  public String getWorkPhone() {
+    return workPhone;
+  }
+
+
+
   @Override
   public String toString() {
     return "ContactData{" +
