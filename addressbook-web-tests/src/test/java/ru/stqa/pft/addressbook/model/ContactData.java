@@ -11,6 +11,7 @@ public class ContactData {
   private String group;
   private String homePhone;
   private String workPhone;
+  private String allPhones;
 
 
   public String getFirtsName() {
@@ -41,6 +42,9 @@ public class ContactData {
     return workPhone;
   }
 
+  public String getAllPhones() {
+    return allPhones;
+  }
 
 
   @Override
@@ -109,6 +113,11 @@ public class ContactData {
 
   public ContactData withHomePhone(String homePhone) {
     this.homePhone = homePhone;
+    return this;
+  }
+
+  public ContactData withAllPhones(String allPhones) {
+    this.allPhones = allPhones;
     return this;
   }
 }
