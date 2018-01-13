@@ -39,7 +39,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public void modify(ContactData contact) {
-    selectContact(0);
+    initContactModificationById(contact.getId());
     fillContactForm(contact, false);
     updateContactForm();
     contactCache = null;
