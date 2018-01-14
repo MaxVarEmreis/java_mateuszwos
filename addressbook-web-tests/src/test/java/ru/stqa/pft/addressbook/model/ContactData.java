@@ -16,6 +16,26 @@ public class ContactData {
   private String email2;
   private String email3;
   private String allEmails;
+  private String middlename;
+  private String nickname;
+  private String title;
+  private String fax;
+  private String company;
+  private String homepage;
+  private String birthday;
+  private String birthdayDay;
+  private String birthdayMonth;
+  private String birthdayYear;
+  private String anniversary;
+  private String anniversaryDay;
+  private String anniversaryMonth;
+  private String anniversaryYear;
+  private String secondaryAddress;
+  private String secondaryHomePhone;
+  private String notes;
+
+
+
 
 
   public String getFirtsName() {
@@ -68,6 +88,75 @@ public class ContactData {
     return allEmails;
   }
 
+  public String getMiddlename() {
+    return middlename;
+  }
+
+  public String getNickname() {
+    return nickname;
+  }
+
+  public String getTitle() {
+    return title;
+  }
+
+  public String getFax() {
+    return fax;
+  }
+
+  public String getCompany() {
+    return company;
+  }
+
+
+  public String getHomepage() {
+    return homepage;
+  }
+
+  public String getBirthday() {
+    return birthday;
+  }
+
+
+  public String getBirthdayDay() {
+    return birthdayDay;
+  }
+
+  public String getBirthdayMonth() {
+    return birthdayMonth;
+  }
+
+  public String getBirthdayYear() {
+    return birthdayYear;
+  }
+
+  public String getAnniversary() {
+    return anniversary;
+  }
+
+  public String getAnniversaryDay() {
+    return anniversaryDay;
+  }
+
+  public String getAnniversaryMonth() {
+    return anniversaryMonth;
+  }
+
+  public String getAnniversaryYear() {
+    return anniversaryYear;
+  }
+
+  public String getSecondaryAddress() {
+    return secondaryAddress;
+  }
+
+  public String getSecondaryHomePhone() {
+    return secondaryHomePhone;
+  }
+
+  public String getNotes() {
+    return notes;
+  }
 
   @Override
   public String toString() {
@@ -162,5 +251,91 @@ public class ContactData {
     this.allEmails = allEmails;
     return this;
   }
+
+  public ContactData withMiddlename(String middlename) {
+    this.middlename = middlename;
+    return this;
+  }
+
+  public ContactData withNickname(String nickname) {
+    this.nickname = nickname;
+    return this;
+  }
+
+  public ContactData withTitle(String title) {
+    this.title = title;
+    return this;
+  }
+
+  public ContactData withFax(String fax) {
+    this.fax = fax;
+    return this;
+  }
+
+  public ContactData withCompany(String company) {
+    this.company = company;
+    return this;
+  }
+
+  public ContactData withHomepage(String homepage) {
+    this.homepage = homepage;
+    return this;
+  }
+
+  public ContactData withBirthday(String birthday) {
+    this.birthday = birthday;
+    return this;
+  }
+
+  public ContactData withBirthdayDay(String birthdayDay) {
+    this.birthdayDay = birthdayDay;
+    return this;
+  }
+
+  public ContactData withBirthdayMonth(String birthdayMonth) {
+    this.birthdayMonth = birthdayMonth;
+    return this;
+  }
+
+  public ContactData withBirthdayYear(String birthdayYear) {
+    this.birthdayYear = birthdayYear;
+    return this;
+  }
+
+  public ContactData withAnniversary(String anniversary) {
+    this.anniversary = anniversary;
+    return this;
+  }
+
+  public ContactData withAnniversaryDay(String anniversaryDay) {
+    this.anniversaryDay = anniversaryDay;
+    return this;
+  }
+
+  public ContactData withAnniversaryMonth(String anniversaryMonth) {
+    this.anniversaryMonth = anniversaryMonth;
+    return this;
+  }
+
+  public ContactData withAnniversaryYear(String anniversaryYear) {
+    this.anniversaryYear = anniversaryYear;
+    return this;
+  }
+
+  public ContactData withSecondaryAddress(String secondaryAddress) {
+    this.secondaryAddress = secondaryAddress;
+    return this;
+  }
+
+  public ContactData withSecondaryHomePhone(String secondaryHomePhone) {
+    this.secondaryHomePhone = secondaryHomePhone;
+    return this;
+  }
+
+  public ContactData withNotes(String notes) {
+    this.notes = notes;
+    return this;
+  }
+
 }
 

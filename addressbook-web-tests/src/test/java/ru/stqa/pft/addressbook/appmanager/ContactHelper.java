@@ -110,10 +110,28 @@ public class ContactHelper extends HelperBase {
     String email = wd.findElement(By.name("email")).getAttribute("value");
     String email2 = wd.findElement(By.name("email2")).getAttribute("value");
     String email3 = wd.findElement(By.name("email3")).getAttribute("value");
+    String middlename = wd.findElement(By.name("middlename")).getAttribute("value");
+    String nickname = wd.findElement(By.name("nickname")).getAttribute("value");
+    String title = wd.findElement(By.name("title")).getAttribute("value");
+    String fax = wd.findElement(By.name("fax")).getAttribute("value");
+    String company = wd.findElement(By.name("company")).getAttribute("value");
+    String homepage = wd.findElement(By.name("homepage")).getAttribute("value");
+    String birthdayDay = wd.findElement(By.name("bday")).findElement(By.cssSelector("option[selected=selected]")).getText();
+    String birthdayMonth = wd.findElement(By.name("bmonth")).findElement(By.cssSelector("option[selected=selected]")).getText();
+    String birthdayYear = wd.findElement(By.name("byear")).getAttribute("value");
+    String anniversaryDay = wd.findElement(By.name("aday")).findElement(By.cssSelector("option[selected=selected]")).getText();
+    String anniversaryMonth = wd.findElement(By.name("amonth")).findElement(By.cssSelector("option[selected=selected]")).getText();
+    String anniversaryYear = wd.findElement(By.name("ayear")).getAttribute("value");
+    String secondaryAddress = wd.findElement(By.name("address2")).getAttribute("value");
+    String secondaryHomePhone = wd.findElement(By.name("phone2")).getAttribute("value");
+    String notes = wd.findElement(By.name("notes")).getAttribute("value");
     wd.navigate().back();
     return new ContactData().withId(contact.getId()).withFirtsName(firtsName).withLastName(lastName)
             .withHomePhone(home).withMobile(mobile).withWorkPhone(work).withAddress(address).withEmail(email)
-            .withEmail2(email2).withEmail3(email3);
+            .withEmail2(email2).withEmail3(email3).withMiddlename(middlename).withNickname(nickname).withTitle(title)
+            .withFax(fax).withCompany(company).withHomepage(homepage).withBirthday(birthdayDay+birthdayMonth+birthdayYear)
+            .withAnniversary(anniversaryDay+anniversaryMonth+anniversaryYear).withSecondaryAddress(secondaryAddress)
+            .withSecondaryHomePhone(secondaryHomePhone).withNotes(notes);
   }
 
   private void initContactModificationById(int id) {
@@ -121,6 +139,28 @@ public class ContactHelper extends HelperBase {
     WebElement row = checkbox.findElement(By.xpath("./../.."));
     List<WebElement> cells = row.findElements(By.tagName("td"));
     cells.get(7).findElement(By.tagName("a")).click();
+  }
+
+  public String infoFromDetailsPage (ContactData contact){
+    contactDetails(contact);
+    WebElement details = wd.findElement(By.id("content"));
+    String [] parts = details.getText().split("Member of:");
+    String detailsText = parts[0];
+    wd.navigate().back();
+    return detailsText;
+  }
+
+  public void contactDetails (ContactData contact) {
+    int id = contact.getId();
+    List<WebElement> rows = wd.findElements(By.name("entry"));
+    for (WebElement row : rows) {
+      List<WebElement> cells = row.findElements(By.tagName("td"));
+      int iD = Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("id"));
+      if (id == iD) {
+        cells.get(6).findElement(By.cssSelector("img[title=\"Details\"]")).click();
+        return;
+      }
+    }
   }
 
   //public List<ContactData> list() {
