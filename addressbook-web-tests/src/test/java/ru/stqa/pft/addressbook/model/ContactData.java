@@ -9,7 +9,7 @@ public class ContactData {
   private String lastName;
   private String mobile;
   private String email;
-  private String group;
+  private String group = "test 1";
   private String homePhone;
   private String workPhone;
   private String allPhones;
