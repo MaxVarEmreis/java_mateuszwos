@@ -1,3 +1,4 @@
-test 0;LastName 0;MobilePhone 0
-test 1;LastName 1;MobilePhone 1
-test 2;LastName 2;MobilePhone 2
+test 0;LastName 0;MobilePhone 0;Email 0
+test 1;LastName 1;MobilePhone 1;Email 1
+test 2;LastName 2;MobilePhone 2;Email 2
+test 3;LastName 3;MobilePhone 3;Email 3
