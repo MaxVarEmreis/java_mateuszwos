@@ -3,8 +3,6 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 
@@ -33,11 +31,11 @@ public class ContactHelper extends HelperBase {
     attach(By.name("photo"), contactData.getPhoto());
 
 
-    if (creation) {
+    /*if (creation) {
       new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
       } else {
         Assert.assertFalse(isElementPresent(By.name("new_group")));
-    }
+    }*/
   }
 
   public void modify(ContactData contact) {
@@ -79,7 +77,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public void checkboxSelectContactById(int id) {
-    wd.findElement(By.cssSelector("input[value='" + id +"']")).click();
+    wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
   }
 
   public void alertDeletion() {
@@ -131,8 +129,8 @@ public class ContactHelper extends HelperBase {
     return new ContactData().withId(contact.getId()).withFirtsName(firtsName).withLastName(lastName)
             .withHomePhone(home).withMobile(mobile).withWorkPhone(work).withAddress(address).withEmail(email)
             .withEmail2(email2).withEmail3(email3).withMiddlename(middlename).withNickname(nickname).withTitle(title)
-            .withFax(fax).withCompany(company).withHomepage(homepage).withBirthday(birthdayDay+birthdayMonth+birthdayYear)
-            .withAnniversary(anniversaryDay+anniversaryMonth+anniversaryYear).withSecondaryAddress(secondaryAddress)
+            .withFax(fax).withCompany(company).withHomepage(homepage).withBirthday(birthdayDay + birthdayMonth + birthdayYear)
+            .withAnniversary(anniversaryDay + anniversaryMonth + anniversaryYear).withSecondaryAddress(secondaryAddress)
             .withSecondaryHomePhone(secondaryHomePhone).withNotes(notes);
   }
 
@@ -143,16 +141,16 @@ public class ContactHelper extends HelperBase {
     cells.get(7).findElement(By.tagName("a")).click();
   }
 
-  public String infoFromDetailsPage (ContactData contact){
+  public String infoFromDetailsPage(ContactData contact) {
     contactDetails(contact);
     WebElement details = wd.findElement(By.id("content"));
-    String [] parts = details.getText().split("Member of:");
+    String[] parts = details.getText().split("Member of:");
     String detailsText = parts[0];
     wd.navigate().back();
     return detailsText;
   }
 
-  public void contactDetails (ContactData contact) {
+  public void contactDetails(ContactData contact) {
     int id = contact.getId();
     List<WebElement> rows = wd.findElements(By.name("entry"));
     for (WebElement row : rows) {
@@ -166,17 +164,17 @@ public class ContactHelper extends HelperBase {
   }
 
   //public List<ContactData> list() {
-      //List<ContactData> contacts = new ArrayList<ContactData>();
-      //List<WebElement> elements = wd.findElements(By.name("entry"));
-    //for (WebElement element : elements) {
-      //List<WebElement> cells = element.findElements(By.tagName("td"));
-     // String firtsName = cells.get(2).getText();
-      //String lastName = cells.get(1).getText();
-     // int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-     // contacts.add(new ContactData().withId(id).withFirtsName(firtsName).withLastName(lastName));
-   // }
-   // return contacts;
- // }
+  //List<ContactData> contacts = new ArrayList<ContactData>();
+  //List<WebElement> elements = wd.findElements(By.name("entry"));
+  //for (WebElement element : elements) {
+  //List<WebElement> cells = element.findElements(By.tagName("td"));
+  // String firtsName = cells.get(2).getText();
+  //String lastName = cells.get(1).getText();
+  // int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+  // contacts.add(new ContactData().withId(id).withFirtsName(firtsName).withLastName(lastName));
+  // }
+  // return contacts;
+  // }
 
   private Contacts contactCache = null;
 
