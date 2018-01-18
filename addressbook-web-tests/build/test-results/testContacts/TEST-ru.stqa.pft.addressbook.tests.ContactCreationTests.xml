@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.stqa.pft.addressbook.tests.ContactCreationTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2018-01-18T16:50:24" hostname="MaxVarEmreis" time="12.802">
+<testsuite name="ru.stqa.pft.addressbook.tests.ContactCreationTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2018-01-18T17:37:33" hostname="MaxVarEmreis" time="8.894">
   <properties/>
-  <testcase name="testContactCreation[0](ContactData{id='0', firtsName='test 0', lastName='LastName 0'})" classname="ru.stqa.pft.addressbook.tests.ContactCreationTests" time="7.612"/>
-  <testcase name="testContactCreation[1](ContactData{id='0', firtsName='test 1', lastName='LastName 1'})" classname="ru.stqa.pft.addressbook.tests.ContactCreationTests" time="5.189"/>
+  <testcase name="testContactCreation[0](ContactData{id='0', firtsName='test 0', lastName='LastName 0'})" classname="ru.stqa.pft.addressbook.tests.ContactCreationTests" time="4.852"/>
+  <testcase name="testContactCreation[1](ContactData{id='0', firtsName='test 1', lastName='LastName 1'})" classname="ru.stqa.pft.addressbook.tests.ContactCreationTests" time="4.042"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[Security framework of XStream not initialized, XStream is probably vulnerable.
 ]]></system-err>
