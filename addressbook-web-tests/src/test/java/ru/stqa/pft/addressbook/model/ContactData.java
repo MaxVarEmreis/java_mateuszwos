@@ -111,7 +111,7 @@ public class ContactData {
 
   @Column(name = "photo")
   @Type(type = "text")
-  private String photo;
+  private String photo = "src/test/resources/stru.png";
 
 
   public String getFirtsName() {
@@ -235,7 +235,7 @@ public class ContactData {
   }
 
   public File getPhoto() {
-    return new File(photo);
+    return new File("src/test/resources/stru.png");
   }
 
 
@@ -259,13 +259,15 @@ public class ContactData {
     ContactData that = (ContactData) o;
     return id == that.id &&
             Objects.equals(firtsName, that.firtsName) &&
-            Objects.equals(lastName, that.lastName);
+            Objects.equals(lastName, that.lastName) &&
+            Objects.equals(mobile, that.mobile) &&
+            Objects.equals(email, that.email);
   }
 
   @Override
   public int hashCode() {
 
-    return Objects.hash(id, firtsName, lastName);
+    return Objects.hash(id, firtsName, lastName, mobile, email);
   }
 
   public ContactData withId(int id) {
