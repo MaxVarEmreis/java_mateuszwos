@@ -2,44 +2,116 @@ package ru.stqa.pft.addressbook.model;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.io.File;
 import java.util.Objects;
 
 @XStreamAlias("contact")
+@Entity
+@Table(name = "addressbook")
 public class ContactData {
+
   @XStreamOmitField
+  @Id
+  @Column(name = "id")
   private int id = Integer.MAX_VALUE;
+
+  @Column(name = "firstname")
   private String firtsName;
+
+  @Column(name = "lastname")
   private String lastName;
+
+  @Column(name = "mobile")
+  @Type(type = "text")
   private String mobile;
+
+  @Column(name = "email")
+  @Type(type = "text")
   private String email;
+
+  @Transient
   private String group;
+
+  @Column(name = "home")
+  @Type(type = "text")
   private String homePhone;
+
+  @Column(name = "work")
+  @Type(type = "text")
   private String workPhone;
+
+  @Transient
   private String allPhones;
+
+  @Transient
   private String address;
+
+  @Transient
   private String email2;
+
+  @Transient
   private String email3;
+
+  @Transient
   private String allEmails;
+
+  @Transient
   private String middlename;
+
+  @Transient
   private String nickname;
+
+  @Transient
   private String title;
+
+  @Transient
   private String fax;
+
+  @Transient
   private String company;
+
+  @Transient
   private String homepage;
+
+  @Transient
   private String birthday;
+
+  @Transient
   private String birthdayDay;
+
+  @Transient
   private String birthdayMonth;
+
+  @Transient
   private String birthdayYear;
+
+  @Transient
   private String anniversary;
+
+  @Transient
   private String anniversaryDay;
+
+  @Transient
   private String anniversaryMonth;
+
+  @Transient
   private String anniversaryYear;
+
+  @Transient
   private String secondaryAddress;
+
+  @Transient
   private String secondaryHomePhone;
+
+  @Transient
   private String notes;
-  private File photo;
+
+  @Column(name = "photo")
+  @Type(type = "text")
+  private String photo;
 
 
   public String getFirtsName() {
@@ -163,7 +235,7 @@ public class ContactData {
   }
 
   public File getPhoto() {
-    return photo;
+    return new File(photo);
   }
 
 
@@ -347,7 +419,7 @@ public class ContactData {
   }
 
   public ContactData withPhoto(File photo) {
-    this.photo = photo;
+    this.photo = photo.getPath();
     return this;
   }
 
