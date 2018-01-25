@@ -6,7 +6,9 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.File;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @XStreamAlias("contact")
 @Entity
@@ -31,9 +33,6 @@ public class ContactData {
   @Column(name = "email")
   @Type(type = "text")
   private String email;
-
-  @Transient
-  private String group;
 
   @Column(name = "home")
   @Type(type = "text")
@@ -113,6 +112,11 @@ public class ContactData {
   @Type(type = "text")
   private String photo = "src/test/resources/stru.png";
 
+  @ManyToMany(fetch = FetchType.EAGER)
+  @JoinTable(name = "address_in_groups",
+          joinColumns = @JoinColumn(name ="id"), inverseJoinColumns = @JoinColumn(name = "group_id" ))
+  private Set<GroupData> groups = new HashSet<GroupData>();
+
 
   public String getFirtsName() {
     return firtsName;
@@ -128,10 +132,6 @@ public class ContactData {
 
   public String getEmail() {
     return email;
-  }
-
-  public String getGroup() {
-    return group;
   }
 
   public String getHomePhone() {
@@ -154,11 +154,9 @@ public class ContactData {
     return email2;
   }
 
-
   public String getEmail3() {
     return email3;
   }
-
 
   public String getAllEmails() {
     return allEmails;
@@ -238,6 +236,10 @@ public class ContactData {
     return new File("src/test/resources/stru.png");
   }
 
+  public Groups getGroups() {
+    return new Groups(groups);
+  }
+
 
   @Override
   public String toString() {
@@ -261,13 +263,14 @@ public class ContactData {
             Objects.equals(firtsName, that.firtsName) &&
             Objects.equals(lastName, that.lastName) &&
             Objects.equals(mobile, that.mobile) &&
-            Objects.equals(email, that.email);
+            Objects.equals(email, that.email) &&
+            Objects.equals(groups, that.groups);
   }
 
   @Override
   public int hashCode() {
 
-    return Objects.hash(id, firtsName, lastName, mobile, email);
+    return Objects.hash(id, firtsName, lastName, mobile, email, groups);
   }
 
   public ContactData withId(int id) {
@@ -292,11 +295,6 @@ public class ContactData {
 
   public ContactData withEmail(String email) {
     this.email = email;
-    return this;
-  }
-
-  public ContactData withGroup(String group) {
-    this.group = group;
     return this;
   }
 
@@ -425,5 +423,9 @@ public class ContactData {
     return this;
   }
 
+  public ContactData inGroup(GroupData group) {
+    groups.add(group);
+    return this;
+  }
 }
 
